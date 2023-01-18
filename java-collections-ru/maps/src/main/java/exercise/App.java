@@ -10,7 +10,6 @@ import static java.util.stream.Collectors.summingInt;
 
 // BEGIN
 public class App {
-clear
     public static Map<String, Integer> getWordCount(String sentence) {
         return ("".equals(sentence)) ? Collections.emptyMap() : Arrays.stream(sentence.split(" "))
                 .collect(Collectors.groupingBy(word -> (word), summingInt(word -> 1)));
