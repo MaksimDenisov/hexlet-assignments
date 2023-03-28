@@ -20,11 +20,15 @@ public class CompaniesServlet extends HttpServlet {
         List<String> companies = Data.getCompanies();
         if (!(search == null) && !search.isEmpty()) {
             companies = companies.stream()
-                    .filter(s->s.contains(search))
+                    .filter(s -> s.contains(search))
                     .collect(Collectors.toList());
         }
-        for (String company : companies) {
-            response.getWriter().println(company);
+        if (companies.size() == 0) {
+            response.getWriter().println("Companies not found");
+        } else {
+            for (String company : companies) {
+                response.getWriter().println(company);
+            }
         }
     }
 }
