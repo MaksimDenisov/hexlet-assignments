@@ -100,7 +100,7 @@ public class UsersServlet extends HttpServlet {
         body.append("<table>");
         body.append("<tr>");
         body.append(String.format("<td>%s</td>",map.get("id")));
-        body.append(String.format("<td><a href=\"/users/%s\">%s %s</a></td>",map.get("id"),map.get("firstName"),map.get("lastName")));
+        body.append(String.format("<td><a href=\"/users/%s\">%s %s</a></td><td>%s</td>",map.get("id"),map.get("firstName"),map.get("lastName"),map.get("email")));
         body.append("</tr>");
         body.append("</table>");
         response.getWriter().println(body.toString());
