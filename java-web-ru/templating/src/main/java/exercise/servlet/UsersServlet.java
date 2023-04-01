@@ -135,6 +135,7 @@ public class UsersServlet extends HttpServlet {
             return;
         }
         // BEGIN
+        users.remove(getUserById(id));
         response.sendRedirect("/users");
         // END
     }

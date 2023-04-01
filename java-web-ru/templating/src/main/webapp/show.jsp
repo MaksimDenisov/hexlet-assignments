@@ -17,7 +17,10 @@
 			<td>${user.get("id")}</td>
 			<td><a href='/users/show?id=${user.get("id")}'>${user.get("firstName")} ${user.get("lastName")}</a></td>
 		</tr>
-	<tr>
+		<tr>
+			<td>${user.get("email")}</td>
+		</tr>
+		<tr>
 		<td>
 			<a href='/users/delete?id=${user.get("id")}'>Delete</a>
 		</td>
