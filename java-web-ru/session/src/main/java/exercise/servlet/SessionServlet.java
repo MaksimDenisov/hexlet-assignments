@@ -22,7 +22,8 @@ public class SessionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws IOException, ServletException {
-
+        HttpSession session = request.getSession();
+        session.removeAttribute("flash");
         if (request.getRequestURI().equals("/login")) {
             showLoginPage(request, response);
             return;
@@ -35,7 +36,8 @@ public class SessionServlet extends HttpServlet {
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
             throws IOException, ServletException {
-
+        HttpSession session = request.getSession();
+        session.removeAttribute("flash");
         switch (request.getRequestURI()) {
             case "/login" -> login(request, response);
             case "/logout" -> logout(request, response);
@@ -58,10 +60,9 @@ public class SessionServlet extends HttpServlet {
         // BEGIN
         String email = request.getParameter("email");
         String password  = request.getParameter("password");;
-        Map<String, String> user = getUsers().findByEmail(email);
         HttpSession session = request.getSession();
-        session.removeAttribute("flash");
         if(session.getAttribute("userId") == null) {
+            Map<String, String> user = getUsers().findByEmail(email);
             if (user != null && password.equals(user.get("password"))) {
                 session.setAttribute("flash", "Вы успешно вошли");
                 session.setAttribute("userId", user.get("id"));
