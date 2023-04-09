@@ -67,7 +67,6 @@ public class SessionServlet extends HttpServlet {
                 session.setAttribute("flash", "Вы успешно вошли");
                 session.setAttribute("userId", user.get("id"));
                 response.sendRedirect("/");
-                return;
             } else {
                 session.setAttribute("flash", "Неверные логин или пароль");
                 response.setStatus(422);
@@ -76,8 +75,8 @@ public class SessionServlet extends HttpServlet {
                 request.setAttribute("user", incorrectUser);
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");
                 requestDispatcher.forward(request, response);
-                return;
             }
+            return;
         }
         response.sendRedirect("/");
         // END

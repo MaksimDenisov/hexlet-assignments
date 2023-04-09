@@ -45,6 +45,9 @@
                 <c:when test='${sessionScope.flash != null}'>
                     <div class="alert alert-info" role="alert">
                         ${sessionScope.flash}
+                            <%
+                                session.removeAttribute("flash");
+                            %>
                     </div>
                 </c:when>
             </c:choose>
