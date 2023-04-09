@@ -101,22 +101,26 @@ public class ArticlesServlet extends HttpServlet {
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
         String id = getId(request);
+        String title = null;
+        String body = null;
         try {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
             ResultSet rs = statement.executeQuery("SELECT * FROM articles WHERE id = " + id);
-            String title = null;
-            String body = null;
             while (rs.next()) {
                 title = rs.getString("title");
                 body = rs.getString("body");
             }
-            request.setAttribute("title", title);
-            request.setAttribute("body", body);
         } catch (SQLException e) {
 
         }
-
+        if (title == null){
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            response.sendRedirect("/articles");
+            return;
+        }
+        request.setAttribute("title", title);
+        request.setAttribute("body", body);
         // END
         TemplateEngineUtil.render("articles/show.html", request, response);
     }
