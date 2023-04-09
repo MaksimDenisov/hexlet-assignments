@@ -1,0 +1,14 @@
+2023-04-09 10:51:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+DROP TABLE IF EXISTS articles; [90002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.query(Prepared.java:231)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:285)
+	at org.h2.command.CommandList.query(CommandList.java:78)
+	at org.h2.command.Command.executeQuery(Command.java:195)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:85)
+	at exercise.App.main(App.java:86)
