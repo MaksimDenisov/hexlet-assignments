@@ -283,7 +283,14 @@ public class ArticlesServlet extends HttpServlet {
         String id = getId(request);
 
         // BEGIN
-
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM articles WHERE id = ?");
+            statement.setString(1, id);
+            statement.execute();
+            // END
+        } catch (SQLException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
         // END
 
         session.setAttribute("flash", "Статья успешно удалена");
