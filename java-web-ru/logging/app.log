@@ -1,0 +1,12 @@
+Apr 09, 2023 10:27:39 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-nio-8000"]
+Apr 09, 2023 10:27:40 AM org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+INFO: Using a shared selector for servlet write/read
+Apr 09, 2023 10:27:40 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Tomcat]
+Apr 09, 2023 10:27:40 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet engine: [Apache Tomcat/8.5.69]
+Apr 09, 2023 10:27:40 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-nio-8000"]
+Apr 09, 2023 10:27:48 AM exercise.servlet.SessionServlet login
+INFO: Attempt to login with email "galen.hickle@yahoo.com"

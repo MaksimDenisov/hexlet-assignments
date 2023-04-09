@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static exercise.App.getUsers;
@@ -69,13 +70,13 @@ public class SessionServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        LOGGER.info(String.format("Attempt to login with email \"%s\"", email));
+
         Map<String, String> userData = users.build(email);
 
         Map<String, String> user = users.findByEmail(email);
 
         // BEGIN
-
+        LOGGER.log(Level.INFO, String.format("Attempt to login with email \"%s\"", email));
         // END
 
         if (user == null || !user.get("password").equals(password)) {
