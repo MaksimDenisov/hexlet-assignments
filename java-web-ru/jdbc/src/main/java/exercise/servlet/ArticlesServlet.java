@@ -107,6 +107,7 @@ public class ArticlesServlet extends HttpServlet {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
             ResultSet rs = statement.executeQuery("SELECT * FROM articles WHERE id = " + id);
+
             while (rs.next()) {
                 title = rs.getString("title");
                 body = rs.getString("body");
@@ -116,7 +117,6 @@ public class ArticlesServlet extends HttpServlet {
         }
         if (title == null){
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            response.sendRedirect("/articles");
             return;
         }
         request.setAttribute("title", title);
