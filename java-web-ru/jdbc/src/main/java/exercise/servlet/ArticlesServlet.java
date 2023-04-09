@@ -106,7 +106,7 @@ public class ArticlesServlet extends HttpServlet {
         try {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
-            ResultSet rs = statement.executeQuery("SELECT * FROM articles WHERE id = " + id);
+            ResultSet rs = statement.executeQuery("SELECT * FROM articles WHERE id = " + id + " ORDER BY id ");
 
             while (rs.next()) {
                 title = rs.getString("title");
