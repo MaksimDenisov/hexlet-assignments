@@ -71,7 +71,7 @@ public class ArticlesServlet extends HttpServlet {
             statement = connection.createStatement();
 
             statement.setQueryTimeout(30);
-            ResultSet rs = statement.executeQuery("SELECT * FROM articles LIMIT 10 OFFSET " + String.valueOf((Integer.valueOf(page) - 1) * 10));
+            ResultSet rs = statement.executeQuery("SELECT * FROM articles ORDER BY id LIMIT 10 OFFSET " + String.valueOf((Integer.valueOf(page) - 1) * 10));
 
             List<Map<String, String>> articles = new ArrayList<>();
 
@@ -106,7 +106,7 @@ public class ArticlesServlet extends HttpServlet {
         try {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
-            ResultSet rs = statement.executeQuery("SELECT * FROM articles WHERE id = " + id + " ORDER BY id ");
+            ResultSet rs = statement.executeQuery("SELECT * FROM articles WHERE id = " + id);
 
             while (rs.next()) {
                 title = rs.getString("title");
