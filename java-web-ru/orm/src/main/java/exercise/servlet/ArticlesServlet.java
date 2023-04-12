@@ -105,6 +105,7 @@ public class ArticlesServlet extends HttpServlet {
         Article article = new QArticle()
                 .select()
                 .id.eq(id)
+                .category.fetch()
                 .findOne();
         // END
         request.setAttribute("article", article);
