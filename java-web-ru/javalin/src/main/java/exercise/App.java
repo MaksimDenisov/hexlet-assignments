@@ -44,29 +44,19 @@ public final class App {
         // Для GET-запроса на маршрут / будет выполняться
         // обработчик welcome в контроллере RootController
         app.get("/", RootController.welcome);
-
-        // При помощи методов routes() и path() маршруты можно группировать
-        /*  GET /articles — список всех статей
-            GET /articles/{id} — просмотр конкретной статьи
-            GET /articles/new — вывод формы создания новой статьи
-            POST /articles — создание новой статьи
-            GET /articles/{id}/edit — вывод формы редактирования статьи
-            POST /articles/{id}/edit — обновление данных статьи
-            GET /articles/{id}/delete — вывод страницы с подтверждением удаления статьи
-            POST /articles/{id}/delete — удаление статьи*/
-        // BEGIN
         app.routes(()->{
             path("articles",()->{
                         get("",ArticleController.listArticles);
+                        get("new",ArticleController.newArticle);
                         get("{id}",ArticleController.showArticle);
-                        get("new",ArticleController.createArticle);
-                        post("",ArticleController.showArticle);
+                        post("",ArticleController.createArticle);
                         get("{id}/edit",ArticleController.editArticle);
                         post("{id}/edit",ArticleController.updateArticle);
                         get("{id}/delete",ArticleController.deleteArticle);
                         post("{id}/delete",ArticleController.destroyArticle);
                     });
         });
+
         // END
     }
 
