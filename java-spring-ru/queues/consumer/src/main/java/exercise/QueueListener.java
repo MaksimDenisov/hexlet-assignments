@@ -27,6 +27,7 @@ public class QueueListener {
     @RabbitListener(queues = "queue")
     public void process(String message) {
         // Выполняем какие-то действия
+        messages.add(message);
         LOGGER.info(message);
     }
     // END
