@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.logging.Logger;
 
 // BEGIN
-public class MaxThread extends Thread{
+public class MaxThread extends Thread {
     private static final Logger LOGGER = Logger.getLogger("AppLogger");
     private final int[] num;
     private int max = Integer.MIN_VALUE;
@@ -16,7 +16,7 @@ public class MaxThread extends Thread{
 
     @Override
     public void run() {
-        max = Arrays.stream(num).min().orElse(Integer.MIN_VALUE);
+        max = Arrays.stream(num).max().orElse(Integer.MIN_VALUE);
         LOGGER.info("Max thread finished");
     }
 

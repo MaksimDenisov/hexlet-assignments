@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.logging.Logger;
 
 // BEGIN
-public class MinThread extends Thread{
+public class MinThread extends Thread {
     private static final Logger LOGGER = Logger.getLogger("AppLogger");
     private final int[] num;
     private int min = Integer.MAX_VALUE;
