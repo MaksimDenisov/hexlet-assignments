@@ -15,7 +15,7 @@ class App {
         System.out.println(App.getMinMax(numbers));
     }
 
-    private static Map<String, Integer> getMinMax(int[] numbers) {
+    public static Map<String, Integer> getMinMax(int[] numbers) {
         MinThread minThread = new MinThread(numbers);
         MaxThread maxThread = new MaxThread(numbers);
         minThread.start();
